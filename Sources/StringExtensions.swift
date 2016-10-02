@@ -30,7 +30,7 @@ public extension String {
         let source = clean(with: " ", allOf: "-", "_")
         if source.characters.contains(" ") {
 			let first = self[self.startIndex...self.index(after: startIndex)] //source.substringToIndex(source.index(after: startIndex))
-            let cammel = NSString(format: "%@", (source as NSString).capitalized.replacingOccurrences(of: " ", with: "")) as String
+            let cammel = NSString(format: "%@", String(NSString(string:(source)).capitalized.replacingOccurrences(of: " ", with: "")))
             let rest = String(cammel.characters.dropFirst())
             return "\(first)\(rest)"
         } else {
@@ -234,7 +234,7 @@ public extension String {
         
     func toBool() -> Bool? {
         let trimmed = self.trimmed().lowercased()
-		return (trimmed as NSString).boolValue
+		return NSString(string:trimmed).boolValue
     }
     
     func toDate(_ format: String = "yyyy-MM-dd") -> Date? {
