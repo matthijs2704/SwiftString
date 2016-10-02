@@ -30,7 +30,7 @@ public extension String {
         let source = clean(with: " ", allOf: "-", "_")
         if source.characters.contains(" ") {
 			let first = self[self.startIndex...self.index(after: startIndex)] //source.substringToIndex(source.index(after: startIndex))
-            let cammel = NSString(format: "%@", String(NSString(string:(source)).capitalized.replacingOccurrences(of: " ", with: "")))
+            let cammel = String(format: "%@", String(NSString(string:(source)).capitalized.replacingOccurrences(of: " ", with: "")))
             let rest = String(cammel.characters.dropFirst())
             return "\(first)\(rest)"
         } else {
