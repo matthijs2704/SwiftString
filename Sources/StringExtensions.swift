@@ -30,7 +30,7 @@ public extension String {
         let source = clean(with: " ", allOf: "-", "_")
         if source.characters.contains(" ") {
 			let first = self[self.startIndex...self.index(after: startIndex)] //source.substringToIndex(source.index(after: startIndex))
-            let cammel = String(format: "%@", String(NSString(string:(source)).capitalized.replacingOccurrences(of: " ", with: "")))
+            let cammel = String(format: "%@", String(NSString(string:(source)).capitalized.replacingOccurrences(of: " ", with: ""))!)
             let rest = String(cammel.characters.dropFirst())
             return "\(first)\(rest)"
         } else {
@@ -304,7 +304,7 @@ private enum ThreadLocalIdentifier {
 }
 
 private func threadLocalInstance<T: AnyObject>(_ identifier: ThreadLocalIdentifier, initialValue: @autoclosure () -> T) -> T {
-    let storage = Thread.current.threadDictionary
+    var storage = Thread.current.threadDictionary
     let k = identifier.objcDictKey
 
     let instance: T = storage[k] as? T ?? initialValue()
@@ -330,7 +330,7 @@ private func defaultNumberFormatter() -> NumberFormatter {
 private func localeNumberFormatter(_ locale: NSLocale) -> NumberFormatter {
     return threadLocalInstance(.localeNumberFormatter(locale), initialValue: {
         let nf = NumberFormatter()
-        nf.locale = locale as Locale!
+        nf.locale = Locale(locale)
         return nf
     }())
 }
