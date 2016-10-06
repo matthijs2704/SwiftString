@@ -330,7 +330,7 @@ private func defaultNumberFormatter() -> NumberFormatter {
 private func localeNumberFormatter(_ locale: NSLocale) -> NumberFormatter {
     return threadLocalInstance(.localeNumberFormatter(locale), initialValue: {
         let nf = NumberFormatter()
-        nf.locale = Locale(locale)
+        nf.locale = locale as Locale!
         return nf
     }())
 }
