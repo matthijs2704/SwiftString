@@ -44,7 +44,7 @@ class SwiftStringTests: XCTestCase {
 	//clean
 	func testclean() {
 		let s = "The stupid brøwn føx"
-		XCTAssertEqual(s.clean(with: "o",allOf: "ø"), "The stupid brown fox", "clean is invalid")
+		XCTAssertEqual(s.clean("o",allOf: ["ø"]), "The stupid brown fox", "clean is invalid")
 	}
 	//count
 	func testcount() {
