@@ -304,15 +304,14 @@ private enum ThreadLocalIdentifier {
 }
 
 private func threadLocalInstance<T: AnyObject>(_ identifier: ThreadLocalIdentifier, initialValue: @autoclosure () -> T) -> T {
-    var storage = Thread.current.threadDictionary
-    let k = identifier.objcDictKey
-
-    let instance: T = storage[k] as? T ?? initialValue()
-    if storage[k] == nil {
-        storage[k] = instance
+    let key = identifier.objcDictKey
+    if let instance = Thread.current.threadDictionary[key] as? T {
+        return instance
+    } else {
+        let instance = initialValue()
+        Thread.current.threadDictionary[key] = instance
+        return instance
     }
-
-    return instance
 }
 
 private func dateFormatter(_ format: String) -> DateFormatter {
