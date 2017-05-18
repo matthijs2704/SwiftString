@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_SwiftString"
+               BlueprintIdentifier = "OBJ_16"
                BuildableName = "SwiftString.framework"
                BlueprintName = "SwiftString"
                ReferencedContainer = "container:SwiftString.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "______Target_SwiftStringTests"
+               BlueprintIdentifier = "OBJ_24"
                BuildableName = "SwiftStringTests.xctest"
                BlueprintName = "SwiftStringTests"
                ReferencedContainer = "container:SwiftString.xcodeproj">
@@ -55,7 +55,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "______Target_SwiftString"
+            BlueprintIdentifier = "OBJ_16"
             BuildableName = "SwiftString.framework"
             BlueprintName = "SwiftString"
             ReferencedContainer = "container:SwiftString.xcodeproj">
